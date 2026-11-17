@@ -15,6 +15,12 @@ Console.WriteLine(p2.FullName);
 Console.WriteLine(p2.Initials);
 // p2.FullName = "Zuowen Yin";   // ❌ 只有 get，不能赋值
 
+// ---------- { get; } = 和 => 的区别：只算一次 vs 每次访问都重新算 ----------
+var login = new LoginInfo();
+Console.WriteLine($"Birthday={login.Birthday:HH:mm:ss.fff}, LoginTime={login.LoginTime:HH:mm:ss.fff}");
+Thread.Sleep(1000);
+Console.WriteLine($"Birthday={login.Birthday:HH:mm:ss.fff}, LoginTime={login.LoginTime:HH:mm:ss.fff}");   // 只有 LoginTime 变了
+
 class Person
 {
     private string name = string.Empty;
@@ -50,4 +56,10 @@ class FullNamePerson
 
     // 简写：表达式体属性，效果一样
     public string Initials => $"{firstName[0]}.{lastName[0]}.";
+}
+
+class LoginInfo
+{
+    public DateTime Birthday { get; } = DateTime.Now;   // 自动属性 + 初始值：创建对象时算一次，存进隐藏字段
+    public DateTime LoginTime => DateTime.Now;          // 表达式体属性：没有字段，每次读取都执行一次
 }
