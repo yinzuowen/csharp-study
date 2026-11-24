@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- 让测试项目可以访问本项目中 internal 的类型 -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="BankDemo.Tests" />
+  </ItemGroup>
+
+</Project>
