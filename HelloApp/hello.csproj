@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+    <UserSecretsId>hello-c9341dbb08ee28a93a130e8df50f3125497d7260f3a1afb777a39500662bb24e</UserSecretsId>
+    <PublishAot>false</PublishAot>
+    <RootNamespace>Hello</RootNamespace>
+  </PropertyGroup>
+
+</Project>
