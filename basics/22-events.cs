@@ -91,12 +91,12 @@ class ClockEventArgs : EventArgs
 
 class Clock
 {
-    private readonly Lock _lock = new();      // C# 13 / .NET 9 的专用锁类型
+    private readonly Lock locker = new();      // C# 13 / .NET 9 的专用锁类型
     public event EventHandler<ClockEventArgs>? OnRing;
 
     public void Start()
     {
-        lock (_lock)
+        lock (locker)
         {
             OnRing?.Invoke(this, new ClockEventArgs(DateTime.Now));
         }
